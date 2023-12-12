@@ -1,2 +1,4 @@
 # ECE-Protokollvorlage-LaTeX
-LaTeX Laborrotokollvorlage für den Studiengang ECE
+LaTeX Laborprotokollvorlage für den Studiengang ECE
+
+Diese Vorlage ist zur Nutzung mit Overleaf gedacht.
