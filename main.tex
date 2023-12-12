@@ -1,0 +1,116 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\DeclareCaptionFormat{custom}
+{%
+    \textbf{\textcolor{cyan}{#1#2}}\textit{\small #3}           %Formatierung für Beschriftungen
+}
+\captionsetup{format=custom}            %Formatierung für Beschriftungen
+\usepackage{fontspec} % needs to be compiled with LuaLaTeX
+%\setmainfont{Cambria}
+\usepackage{minted}             %Package für Code-Darstellung
+\usemintedstyle{native}          %Empfehlung mit [bgcolor=black, linenos], bei weißem Background z.B. {emacs} verwenden
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage[framemethod=tikz]{mdframed}
+\mdfdefinestyle{matlabcode}{%           %Environment für MatLab-Darstellung von Code
+  outerlinewidth=.5pt,
+  linecolor=gray!20!white,
+  roundcorner=2pt,
+  innertopmargin=.5\baselineskip,
+  innerbottommargin=.5\baselineskip,
+  innerleftmargin=1em,
+  backgroundcolor=gray!10!white
+}
+\newenvironment{matlabcode}{\Verbatim}{\endVerbatim}
+\surroundwithmdframed[style=matlabcode]{matlabcode}
+
+\definecolor{output}{gray}{0.4}
+\newenvironment{matlaboutput}{%         %Environment für MatLab-Dartstellung von Ausgabewerten
+  \Verbatim[xleftmargin=1.25em, formatcom=\color{output}]%
+}{\endVerbatim}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=25mm,
+ top=30mm,
+ bottom=40mm
+ }
+\usepackage[english,ngerman]{babel}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\titleformat{\section}      %Formatierung Titelblatt
+  {\normalfont\huge\bfseries}{\thesection}{1em}{}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\title{title}
+\author{name}
+
+\addto\captionsngerman{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Inhalt}%
+}
+
+\begin{document}
+
+\begin{titlepage}           %Anfang Titelblatt
+\hfill \includegraphics[width=0.45\textwidth]{Bilder/logo.jpg}
+
+\begin{center}
+\vfill
+{\huge\bf Titel}
+\vspace{3em}
+
+{\LARGE\bf Untertitel}
+\vfill
+\end{center}
+
+Name
+
+Datum
+\end{titlepage}             %Ende Titelblatt
+\pagenumbering{Roman}
+\tableofcontents  
+
+\clearpage
+
+\pagenumbering{arabic}
+\section{First Section}
+
+... inhalt 
+
+\section{Geräteverzeichnis}
+
+\section{Sonstige Verzeichnisse}            %bei Bedarf auskommentieren
+
+\listoftables
+
+\listoffigures
+
+\vspace*{\fill}             %Unterschriften am Ende der letzten Seite als Bilder
+\begin{minipage}[b][][b]{0.3\textwidth}
+\flushleft
+%\includegraphics[width=1\textwidth]{}         %Einkommentieren, dass man die Unterschriften anzeigen kann
+
+Name
+
+Datum
+\end{minipage}
+\begin{minipage}[b][][b]{0.67\textwidth}
+\flushleft
+%\includegraphics[width=0.25\textwidth]{}           %Einkommentieren, dass man die Unterschriften anzeigen kann
+
+Name
+
+Datum
+\end{minipage}
+
+\end{document}
